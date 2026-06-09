@@ -4,538 +4,1148 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ricardo Levi — Engenheiro e Analista de Sistemas</title>
+  <meta name="description" content="Portfólio de Ricardo Levi Menezes Campos — Engenheiro Eletricista e Analista de Sistemas na Dedaline. Especialista em SAP, transformação digital e desenvolvimento web." />
+  <meta name="author" content="Ricardo Levi Menezes Campos" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ricardo Levi — Engenheiro e Analista de Sistemas" />
+  <meta property="og:description" content="Engenheiro Eletricista e Analista de Sistemas com 40+ anos de experiência. Especialista em SAP, Data Science e desenvolvimento web." />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ricardo Levi — Engenheiro e Analista de Sistemas" />
+  <meta name="twitter:description" content="Engenheiro Eletricista e Analista de Sistemas com 40+ anos de experiência." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #ffffff;
-      --bg2: #f7f6f3;
-      --bg3: #f0efe9;
-      --text: #1a1a18;
-      --text2: #6b6b66;
-      --border: rgba(0,0,0,0.1);
-      --border2: rgba(0,0,0,0.2);
-      --radius-md: 8px;
-      --radius-lg: 12px;
+      --bg:           #09090f;
+      --bg2:          #0f0f1e;
+      --bg3:          #161628;
+      --surface:      rgba(255,255,255,0.04);
+      --text:         #ededff;
+      --text2:        #7070a0;
+      --purple:       #8b5cf6;
+      --purple-l:     #a78bfa;
+      --purple-dim:   rgba(139,92,246,0.12);
+      --purple-glow:  rgba(139,92,246,0.30);
+      --purple-border:rgba(139,92,246,0.22);
+      --green:        #22c55e;
+      --green-l:      #4ade80;
+      --green-dim:    rgba(34,197,94,0.12);
+      --green-glow:   rgba(34,197,94,0.25);
+      --border:       rgba(139,92,246,0.14);
+      --border2:      rgba(139,92,246,0.28);
+      --r-sm:         6px;
+      --r-md:         10px;
+      --r-lg:         14px;
+      --r-xl:         18px;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #1a1a18;
-        --bg2: #242420;
-        --bg3: #2c2c28;
-        --text: #f0efe9;
-        --text2: #9b9b94;
-        --border: rgba(255,255,255,0.1);
-        --border2: rgba(255,255,255,0.2);
-      }
-    }
-
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg3);
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
       color: var(--text);
-      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
     }
 
-    /* NAV */
+    /* ── AMBIENT BLOBS ── */
+    .blob-1, .blob-2 {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(60px);
+    }
+    .blob-1 {
+      width: 500px; height: 500px;
+      top: -180px; left: -120px;
+      background: radial-gradient(circle, rgba(139,92,246,0.09) 0%, transparent 70%);
+    }
+    .blob-2 {
+      width: 420px; height: 420px;
+      bottom: -100px; right: -80px;
+      background: radial-gradient(circle, rgba(34,197,94,0.07) 0%, transparent 70%);
+    }
+
+    /* ── NAV ── */
     nav {
-      background: var(--bg);
-      border-bottom: 0.5px solid var(--border);
-      padding: 0.875rem 2rem;
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(9,9,15,0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
     .nav-brand {
-      font-family: 'Fraunces', serif;
-      font-size: 17px;
-      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--text);
+      color: var(--purple-l);
       text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-    .nav-links a {
-      font-size: 13px;
-      color: var(--text2);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    /* LAYOUT */
-    .container {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 0 1.5rem 5rem;
-    }
-
-    /* HERO */
-    .hero {
-      background: var(--bg);
-      border-bottom: 0.5px solid var(--border);
-      padding: 3.5rem 2.5rem 2.5rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: end;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-    .hero-tag {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text2);
-      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .hero-tag::before {
+    .nav-brand::before {
       content: '';
-      display: inline-block;
-      width: 20px;
-      height: 1px;
-      background: var(--text2);
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
     }
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text2);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 20px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--purple-l);
+      background: var(--purple-dim);
+    }
+
+    /* ── SITE WRAPPER ── */
+    .site-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 3.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      grid-template-rows: auto auto;
+      gap: 0 2rem;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      /* subtle circuit grid */
+      background-image:
+        linear-gradient(rgba(139,92,246,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,92,246,0.035) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+    .hero-content { grid-column: 1; grid-row: 1; padding-bottom: 2.5rem; }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-dim);
+      border: 1px solid rgba(34,197,94,0.25);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-tag i { font-size: 13px; }
+
     .hero h1 {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(32px, 5vw, 46px);
-      font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 0.75rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
     }
+    .hero h1 .line-purple {
+      background: linear-gradient(120deg, var(--purple-l) 0%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero h1 .line-green {
+      background: linear-gradient(120deg, var(--green) 0%, var(--green-l) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
     .hero-sub {
       font-size: 15px;
       color: var(--text2);
-      font-weight: 300;
-      max-width: 360px;
-      line-height: 1.65;
-    }
-    .hero-avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      border: 3px solid var(--border);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-ctas {
-      display: flex;
-      gap: 10px;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--text);
-      color: var(--bg);
-      border: none;
-      padding: 10px 20px;
-      border-radius: var(--radius-md);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      transition: opacity 0.15s;
-    }
-    .btn-primary:hover { opacity: 0.85; }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 0.5px solid var(--border2);
-      padding: 10px 20px;
-      border-radius: var(--radius-md);
-      font-size: 13px;
-      font-weight: 400;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      transition: background 0.15s;
-    }
-    .btn-secondary:hover { background: var(--bg2); }
-
-    /* MAIN CONTENT */
-    main { max-width: 780px; margin: 0 auto; padding: 0 0 4rem; }
-
-    .section {
-      padding: 2.5rem 2.5rem 0;
-      background: var(--bg);
-    }
-    .section + .section { border-top: 0.5px solid var(--border); }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text2);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 0.5px solid var(--border);
-    }
-
-    /* SOBRE */
-    .about-text {
-      font-size: 16px;
       line-height: 1.75;
-      color: var(--text);
-      font-weight: 300;
-      padding-bottom: 2.5rem;
+      max-width: 400px;
+      margin-bottom: 2rem;
     }
-    .about-text strong { font-weight: 500; }
 
-    /* TIMELINE */
-    .timeline { padding-bottom: 2.5rem; }
-    .tl-item {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 1.5rem;
-      padding: 1rem 0;
-      border-bottom: 0.5px solid var(--border);
-      align-items: baseline;
+    .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* ── ILLUSTRATION ── */
+    .hero-visual {
+      grid-column: 2;
+      grid-row: 1 / 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 2rem;
     }
-    .tl-item:last-child { border-bottom: none; }
-    .tl-date {
+    .hero-visual svg {
+      width: 240px;
+      height: 240px;
+      overflow: visible;
+    }
+
+    /* ── HERO STATS ── */
+    .hero-stats {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border);
+    }
+    .stat {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .stat + .stat { border-left: 1px solid var(--border); }
+    .stat-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+    .stat-value .accent { color: var(--purple-l); }
+    .stat-label {
       font-size: 12px;
       color: var(--text2);
-      font-variant-numeric: tabular-nums;
+      font-weight: 400;
     }
-    .tl-role { font-size: 14px; font-weight: 500; color: var(--text); }
 
-    /* HABILIDADES */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 22px;
+      background: var(--purple);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-md);
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 0 20px var(--purple-glow);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover {
+      background: var(--purple-l);
+      box-shadow: 0 0 32px rgba(139,92,246,0.55);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 20px;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border2);
+      border-radius: var(--r-md);
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover {
+      background: var(--purple-dim);
+      border-color: var(--purple);
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 2.75rem 2.5rem 0;
+    }
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
       gap: 10px;
-      padding-bottom: 2.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.75rem;
+    }
+    .section-label::before {
+      content: '';
+      flex-shrink: 0;
+      width: 18px;
+      height: 2px;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green-glow);
+      border-radius: 2px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── SOBRE ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      padding-bottom: 2.75rem;
+    }
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+    .about-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text2);
+    }
+    .about-text strong { color: var(--text); font-weight: 600; }
+    .about-callout {
+      background: linear-gradient(135deg, var(--purple-dim), var(--green-dim));
+      border: 1px solid var(--purple-border);
+      border-radius: var(--r-xl);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .about-callout-quote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+    .about-callout-sub {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+    .about-callout-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple-l);
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      padding-bottom: 2.75rem;
+      position: relative;
+    }
+    .tl-line {
+      position: absolute;
+      left: 6px;
+      top: 4px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--purple), rgba(34,197,94,0.4) 80%, transparent);
+    }
+    .tl-list { padding-left: 32px; display: flex; flex-direction: column; gap: 0; }
+    .tl-item {
+      position: relative;
+      padding: 1rem 1rem 1rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -29px;
+      top: 18px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--purple);
+      box-shadow: 0 0 10px var(--purple-glow);
+    }
+    .tl-item:last-child::before {
+      border-color: var(--green);
+      box-shadow: 0 0 10px var(--green-glow);
+    }
+    .tl-date {
+      flex-shrink: 0;
+      width: 96px;
+      font-size: 12px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--purple-l);
+      padding-top: 1px;
+      letter-spacing: 0.02em;
+    }
+    .tl-body { flex: 1; }
+    .tl-role {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .tl-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--text2);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    /* ── SKILLS BENTO ── */
+    .skills-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 10px;
+      padding-bottom: 2.75rem;
     }
     .skill-card {
       background: var(--bg2);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 1.25rem;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: default;
     }
-    .skill-name { font-size: 13px; font-weight: 500; margin-bottom: 10px; }
+    .skill-card:hover {
+      border-color: var(--purple);
+      box-shadow: 0 0 20px var(--purple-dim);
+      transform: translateY(-2px);
+    }
+    .skill-card.wide { grid-column: span 2; }
+    .skill-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    .skill-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .skill-pct {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--purple-l);
+    }
     .skill-bar-bg {
-      height: 3px;
-      background: var(--border2);
-      border-radius: 2px;
+      height: 4px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
       overflow: hidden;
+      margin-bottom: 0.5rem;
     }
     .skill-bar-fill {
       height: 100%;
-      background: var(--text);
-      border-radius: 2px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--purple), var(--green));
+      box-shadow: 0 0 10px var(--green-glow);
     }
-    .skill-level { font-size: 11px; color: var(--text2); margin-top: 6px; }
+    .skill-level {
+      font-size: 11px;
+      color: var(--text2);
+    }
+    .skill-icon {
+      width: 32px; height: 32px;
+      border-radius: var(--r-sm);
+      background: var(--purple-dim);
+      border: 1px solid var(--purple-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .skill-icon i { font-size: 16px; color: var(--purple-l); }
 
-    /* PROJETOS */
+    /* ── PROJECTS ── */
     .projects-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      padding-bottom: 2.5rem;
+      gap: 12px;
+      padding-bottom: 2.75rem;
     }
     .project-card {
       background: var(--bg2);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      transition: border-color 0.15s;
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.25rem;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
     }
-    .project-card:hover { border-color: var(--border2); }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--purple), var(--green));
+      border-radius: 3px 0 0 3px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .project-card:hover {
+      border-color: var(--purple);
+      box-shadow: 0 8px 32px rgba(139,92,246,0.1);
+      transform: translateX(4px);
+    }
+    .project-card:hover::before { opacity: 1; }
     .project-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius-md);
-      background: var(--bg3);
-      border: 0.5px solid var(--border);
+      width: 46px; height: 46px;
+      border-radius: var(--r-md);
+      background: var(--purple-dim);
+      border: 1px solid var(--purple-border);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .project-icon i { font-size: 18px; color: var(--text2); }
-    .project-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
-    .project-desc { font-size: 13px; color: var(--text2); line-height: 1.55; }
-
-    /* INTERESSES */
-    .interests-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      padding-bottom: 2.5rem;
+    .project-icon i { font-size: 20px; color: var(--purple-l); }
+    .project-meta { display: flex; flex-direction: column; gap: 0.35rem; }
+    .project-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text);
     }
-    @media (max-width: 480px) {
-      .interests-grid { grid-template-columns: 1fr; }
+    .project-desc {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
     }
-    .interest-item {
-      background: var(--bg2);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1rem 1.25rem;
+    .project-tags {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
     }
-    .interest-item i { font-size: 18px; color: var(--text2); }
+    .project-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 9px;
+      border-radius: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text2);
+    }
 
-    /* CONTATO */
-    .contact-wrap { padding: 2.5rem; background: var(--bg); }
-    .contact-inner {
+    /* ── INTERESTS ── */
+    .interests-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 2.75rem;
+    }
+    .interest-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
       background: var(--bg2);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      font-size: 14px;
+      color: var(--text2);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .interest-chip:hover {
+      border-color: var(--green);
+      color: var(--text);
+      background: var(--green-dim);
+    }
+    .interest-chip i { font-size: 16px; color: var(--green); }
+
+    /* ── CONTACT ── */
+    .contact-wrap { padding: 2.75rem 2.5rem; }
+    .contact-inner {
+      border-radius: var(--r-xl);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--purple-border);
+      background: linear-gradient(135deg, rgba(139,92,246,0.07) 0%, rgba(34,197,94,0.05) 100%);
+    }
+    .contact-inner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--purple) 30%, var(--green) 70%, transparent 100%);
+    }
+    .contact-inner::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%);
+      pointer-events: none;
     }
     .contact-heading {
-      font-family: 'Fraunces', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 26px;
-      font-weight: 300;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 0.75rem;
+      position: relative;
     }
     .contact-desc {
       font-size: 14px;
       color: var(--text2);
-      line-height: 1.65;
-      margin-bottom: 1.5rem;
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+      max-width: 460px;
+      position: relative;
     }
-    .social-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .social-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      position: relative;
+    }
     .social-link {
       display: inline-flex;
       align-items: center;
       gap: 7px;
       padding: 9px 16px;
-      border: 0.5px solid var(--border2);
-      border-radius: var(--radius-md);
+      border: 1px solid var(--border2);
+      border-radius: var(--r-md);
       font-size: 13px;
+      font-weight: 500;
       color: var(--text);
       text-decoration: none;
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      transition: background 0.15s;
+      background: rgba(9,9,15,0.5);
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
     }
-    .social-link:hover { background: var(--bg3); }
-    .social-link i { font-size: 16px; color: var(--text2); }
+    .social-link:hover {
+      background: var(--purple-dim);
+      border-color: var(--purple);
+      transform: translateY(-2px);
+    }
+    .social-link i { font-size: 16px; color: var(--purple-l); }
 
-    /* FOOTER */
+    /* ── FOOTER ── */
     footer {
-      max-width: 780px;
-      margin: 0 auto;
       padding: 1.5rem 2.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 0.5px solid var(--border);
-      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green-glow);
     }
     .footer-name {
-      font-family: 'Fraunces', serif;
-      font-size: 14px;
-      font-weight: 300;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
       color: var(--text2);
     }
+    .footer-name span { color: var(--purple-l); }
     .footer-copy { font-size: 12px; color: var(--text2); }
 
-    /* RESPONSIVE */
-    @media (max-width: 600px) {
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      nav { padding: 0 1.25rem; }
       .hero {
         grid-template-columns: 1fr;
-        padding: 2rem 1.5rem 1.5rem;
+        padding: 2.5rem 1.5rem 0;
       }
-      .hero-avatar { display: none; }
-      .section, .contact-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .hero-visual { display: none; }
+      .hero-stats { grid-column: 1; }
+      .section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .contact-wrap { padding: 2rem 1.5rem; }
       footer { padding: 1.5rem; }
-      .tl-item { grid-template-columns: 80px 1fr; gap: 1rem; }
+      .tl-item { gap: 0.75rem; }
+      .tl-date { width: 78px; }
+      .skills-bento { grid-template-columns: repeat(2, 1fr); }
+      .skill-card.wide { grid-column: span 2; }
+    }
+    @media (max-width: 420px) {
+      .skills-bento { grid-template-columns: 1fr; }
+      .skill-card.wide { grid-column: span 1; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .stat + .stat { border-left: none; border-top: 1px solid var(--border); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
 <body>
 
+  <div class="blob-1" aria-hidden="true"></div>
+  <div class="blob-2" aria-hidden="true"></div>
+
   <nav>
     <a href="#" class="nav-brand">Ricardo Levi</a>
     <ul class="nav-links">
-      <li><a href="#experiencias">Experiências</a></li>
+      <li><a href="#trajetoria">Trajetória</a></li>
       <li><a href="#projetos">Projetos</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
   </nav>
 
-  <header class="hero">
-    <div>
-      <div class="hero-tag">Portfólio Profissional</div>
-      <h1>Engenharia &amp;<br>Tecnologias<br>Digitais</h1>
-      <p class="hero-sub">Descomplicando processos com inteligência aplicada — de sistemas SAP a soluções digitais modernas.</p>
-      <div class="hero-ctas">
-        <a href="mailto:ricardolevi@dedaline.dev" class="btn-primary">
-          <i class="ti ti-mail" aria-hidden="true"></i> Entrar em contato
-        </a>
-        <a href="https://github.com/ricardolevi2005" target="_blank" rel="noopener" class="btn-secondary">
-          <i class="ti ti-brand-github" aria-hidden="true"></i> GitHub
-        </a>
-      </div>
-    </div>
-    <div class="hero-avatar">
-      <img src="img/levi.jpg" alt="Foto de Ricardo Levi" />
-    </div>
-  </header>
+  <div class="site-wrap">
 
-  <main>
-
-    <section class="section" id="sobre">
-      <div class="section-label">Sobre</div>
-      <p class="about-text">
-        <strong>Ricardo Levi Menezes Campos</strong> é Engenheiro Eletricista e Analista de Sistemas na <strong>Dedaline</strong>, com especialização em <strong>Inteligência de Perdas</strong>. Ao longo de décadas, construiu uma trajetória que une engenharia elétrica clássica com as exigências das novas tecnologias digitais — da automação industrial ao desenvolvimento web.
-      </p>
-    </section>
-
-    <section class="section" id="experiencias">
-      <div class="section-label">Trajetória</div>
-      <div class="timeline">
-        <div class="tl-item">
-          <span class="tl-date">1976–1979</span>
-          <span class="tl-role">Técnico em Eletrotécnica</span>
+    <!-- ── HERO ── -->
+    <header class="hero">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <i class="ti ti-circuit-board" aria-hidden="true"></i>
+          Portfólio Profissional
         </div>
-        <div class="tl-item">
-          <span class="tl-date">1980–1986</span>
-          <span class="tl-role">Graduação em Engenharia Elétrica</span>
-        </div>
-        <div class="tl-item">
-          <span class="tl-date">1987</span>
-          <span class="tl-role">Pós-Graduação em Análise de Sistemas</span>
-        </div>
-        <div class="tl-item">
-          <span class="tl-date">2005–2018</span>
-          <span class="tl-role">Implantação de Sistemas SAP — CSS/CRM</span>
-        </div>
-        <div class="tl-item">
-          <span class="tl-date">2020</span>
-          <span class="tl-role">Gestão das Tecnologias Digitais</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-label">Habilidades técnicas</div>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-name">HTML &amp; CSS</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
-          <div class="skill-level">Intermediário-avançado</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-name">JavaScript</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:72%"></div></div>
-          <div class="skill-level">Intermediário-avançado</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-name">React</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:48%"></div></div>
-          <div class="skill-level">Em desenvolvimento</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-name">Python</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:72%"></div></div>
-          <div class="skill-level">Intermediário-avançado</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-name">Design</div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:48%"></div></div>
-          <div class="skill-level">Em desenvolvimento</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="projetos">
-      <div class="section-label">Projetos</div>
-      <div class="projects-list">
-        <div class="project-card">
-          <div class="project-icon"><i class="ti ti-scale" aria-hidden="true"></i></div>
-          <div>
-            <div class="project-title">Sites para Escritórios de Advocacia</div>
-            <div class="project-desc">Desenvolvimento de presença digital profissional e funcional para o setor jurídico.</div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
-          <div>
-            <div class="project-title">Data Science na Área de Energia</div>
-            <div class="project-desc">Estudos e análises aplicadas ao setor elétrico usando Python e visualização de dados.</div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="ti ti-cpu" aria-hidden="true"></i></div>
-          <div>
-            <div class="project-title">Implantação de Tecnologias Digitais</div>
-            <div class="project-desc">Projetos de transformação digital com foco em processos industriais e corporativos.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-label">Interesses</div>
-      <div class="interests-grid">
-        <div class="interest-item"><i class="ti ti-music" aria-hidden="true"></i> Música variada</div>
-        <div class="interest-item"><i class="ti ti-confetti" aria-hidden="true"></i> Roda de Samba</div>
-        <div class="interest-item"><i class="ti ti-map-pin" aria-hidden="true"></i> Viagens pelo Brasil</div>
-        <div class="interest-item"><i class="ti ti-device-tv" aria-hidden="true"></i> Séries &amp; TV</div>
-      </div>
-    </section>
-
-    <div class="contact-wrap" id="contato">
-      <div class="contact-inner">
-        <h2 class="contact-heading">Vamos conversar?</h2>
-        <p class="contact-desc">Estou disponível para projetos de tecnologia digital, desenvolvimento web e consultoria em sistemas elétricos. Envie uma mensagem e retorno em breve.</p>
-        <div class="social-links">
-          <a href="mailto:ricardolevi@dedaline.dev" class="social-link">
-            <i class="ti ti-mail" aria-hidden="true"></i> E-mail
+        <h1>
+          <span class="line-purple">Engenharia</span><br>
+          &amp; Tecnologias<br>
+          <span class="line-green">Digitais</span>
+        </h1>
+        <p class="hero-sub">
+          Descomplicando processos com inteligência aplicada — de sistemas SAP e automação industrial a soluções digitais modernas.
+        </p>
+        <div class="hero-ctas">
+          <a href="mailto:ricardolevi@dedaline.dev" class="btn-primary">
+            <i class="ti ti-mail" aria-hidden="true"></i> Entrar em contato
           </a>
-          <a href="https://www.youtube.com/channel/UCnoYMC8SIPAhyyWazu9SMFg" target="_blank" rel="noopener" class="social-link">
-            <i class="ti ti-brand-youtube" aria-hidden="true"></i> YouTube
-          </a>
-          <a href="https://github.com/ricardolevi2005" target="_blank" rel="noopener" class="social-link">
+          <a href="https://github.com/ricardolevi2005" target="_blank" rel="noopener" class="btn-secondary">
             <i class="ti ti-brand-github" aria-hidden="true"></i> GitHub
           </a>
-          <a href="https://www.instagram.com/dedaline_dev/" target="_blank" rel="noopener" class="social-link">
-            <i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram
-          </a>
         </div>
       </div>
-    </div>
 
-  </main>
+      <!-- ── SVG: Engenharia Elétrica + Informática ── -->
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração de circuito eletrônico integrado com código">
+          <defs>
+            <filter id="gp" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="3.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="gg" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="2.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="1.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <radialGradient id="chip-fill" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#1c1a3a"/>
+              <stop offset="100%" stop-color="#0f0f1e"/>
+            </radialGradient>
+          </defs>
 
-  <footer>
-    <span class="footer-name">Ricardo Levi · Dedaline</span>
-    <span class="footer-copy">© 2025</span>
-  </footer>
+          <!-- Outer ring (dashed) -->
+          <circle cx="130" cy="130" r="122" fill="none" stroke="rgba(139,92,246,0.1)" stroke-width="1" stroke-dasharray="4 7"/>
+          <!-- Mid ring -->
+          <circle cx="130" cy="130" r="90" fill="none" stroke="rgba(139,92,246,0.07)" stroke-width="1"/>
+
+          <!-- ── TRACES: LEFT ── -->
+          <line x1="18" y1="102" x2="80" y2="102" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5"/>
+          <line x1="18" y1="118" x2="80" y2="118" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+          <line x1="18" y1="142" x2="80" y2="142" stroke="#22c55e" stroke-width="2" opacity="0.8" filter="url(#gg)"/>
+          <line x1="18" y1="158" x2="80" y2="158" stroke="#8b5cf6" stroke-width="1" opacity="0.35"/>
+          <!-- L-bend on top-left trace -->
+          <polyline points="18,60 40,60 40,102" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+          <!-- Endpoint nodes left -->
+          <circle cx="18" cy="102" r="3.5" fill="#8b5cf6" opacity="0.7"/>
+          <circle cx="18" cy="118" r="2.5" fill="#8b5cf6" opacity="0.4"/>
+          <circle cx="18" cy="142" r="4" fill="#22c55e" opacity="0.95" filter="url(#gg)"/>
+          <circle cx="18" cy="158" r="2.5" fill="#8b5cf6" opacity="0.4"/>
+
+          <!-- ── TRACES: RIGHT ── -->
+          <line x1="180" y1="102" x2="242" y2="102" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5"/>
+          <line x1="180" y1="118" x2="242" y2="118" stroke="#22c55e" stroke-width="2" opacity="0.8" filter="url(#gg)"/>
+          <line x1="180" y1="142" x2="242" y2="142" stroke="#8b5cf6" stroke-width="1" opacity="0.35"/>
+          <line x1="180" y1="158" x2="242" y2="158" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+          <!-- L-bend bottom-right -->
+          <polyline points="242,200 220,200 220,158" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+          <circle cx="242" cy="102" r="3.5" fill="#8b5cf6" opacity="0.7"/>
+          <circle cx="242" cy="118" r="4" fill="#22c55e" opacity="0.95" filter="url(#gg)"/>
+          <circle cx="242" cy="142" r="2.5" fill="#8b5cf6" opacity="0.4"/>
+          <circle cx="242" cy="158" r="2.5" fill="#8b5cf6" opacity="0.35"/>
+
+          <!-- ── TRACES: TOP ── -->
+          <line x1="102" y1="18" x2="102" y2="80" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5"/>
+          <line x1="118" y1="18" x2="118" y2="80" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+          <line x1="142" y1="18" x2="142" y2="80" stroke="#22c55e" stroke-width="2" opacity="0.8" filter="url(#gg)"/>
+          <line x1="158" y1="18" x2="158" y2="80" stroke="#8b5cf6" stroke-width="1" opacity="0.35"/>
+          <circle cx="102" cy="18" r="3.5" fill="#8b5cf6" opacity="0.7"/>
+          <circle cx="118" cy="18" r="2.5" fill="#8b5cf6" opacity="0.4"/>
+          <circle cx="142" cy="18" r="4" fill="#22c55e" opacity="0.95" filter="url(#gg)"/>
+          <circle cx="158" cy="18" r="2.5" fill="#8b5cf6" opacity="0.35"/>
+
+          <!-- ── TRACES: BOTTOM ── -->
+          <line x1="102" y1="180" x2="102" y2="242" stroke="#8b5cf6" stroke-width="1" opacity="0.35"/>
+          <line x1="118" y1="180" x2="118" y2="242" stroke="#22c55e" stroke-width="2" opacity="0.8" filter="url(#gg)"/>
+          <line x1="142" y1="180" x2="142" y2="242" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5"/>
+          <line x1="158" y1="180" x2="158" y2="242" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+          <circle cx="102" cy="242" r="2.5" fill="#8b5cf6" opacity="0.4"/>
+          <circle cx="118" cy="242" r="4" fill="#22c55e" opacity="0.95" filter="url(#gg)"/>
+          <circle cx="142" cy="242" r="3.5" fill="#8b5cf6" opacity="0.7"/>
+          <circle cx="158" cy="242" r="2.5" fill="#8b5cf6" opacity="0.35"/>
+
+          <!-- ── CHIP BODY ── -->
+          <rect x="80" y="80" width="100" height="100" rx="12" fill="url(#chip-fill)" stroke="#8b5cf6" stroke-width="2" filter="url(#gp)"/>
+          <!-- Inner chip area -->
+          <rect x="90" y="90" width="80" height="80" rx="8" fill="#111120" stroke="rgba(139,92,246,0.25)" stroke-width="1"/>
+
+          <!-- Internal grid lines -->
+          <line x1="110" y1="90" x2="110" y2="170" stroke="rgba(139,92,246,0.14)" stroke-width="0.8"/>
+          <line x1="130" y1="90" x2="130" y2="170" stroke="rgba(139,92,246,0.14)" stroke-width="0.8"/>
+          <line x1="150" y1="90" x2="150" y2="170" stroke="rgba(139,92,246,0.14)" stroke-width="0.8"/>
+          <line x1="90" y1="110" x2="170" y2="110" stroke="rgba(139,92,246,0.14)" stroke-width="0.8"/>
+          <line x1="90" y1="130" x2="170" y2="130" stroke="rgba(139,92,246,0.14)" stroke-width="0.8"/>
+          <line x1="90" y1="150" x2="170" y2="150" stroke="rgba(139,92,246,0.14)" stroke-width="0.8"/>
+
+          <!-- Central processor block -->
+          <rect x="108" y="108" width="44" height="44" rx="5" fill="#1a183a" stroke="#8b5cf6" stroke-width="1.5" filter="url(#soft)"/>
+          <!-- CPU text -->
+          <text x="130" y="124" font-family="'Space Grotesk', monospace" font-size="8.5" fill="#a78bfa" text-anchor="middle" font-weight="700">CPU</text>
+          <!-- Decorative inner lines (die grid) -->
+          <line x1="116" y1="128" x2="144" y2="128" stroke="rgba(139,92,246,0.35)" stroke-width="0.8"/>
+          <line x1="116" y1="133" x2="144" y2="133" stroke="rgba(139,92,246,0.25)" stroke-width="0.8"/>
+          <line x1="116" y1="138" x2="144" y2="138" stroke="rgba(139,92,246,0.2)" stroke-width="0.8"/>
+          <text x="130" y="146" font-family="monospace" font-size="6" fill="rgba(167,139,250,0.5)" text-anchor="middle">&#x25c6;&#x25c6;&#x25c6;</text>
+
+          <!-- Chip pin nodes (where traces meet chip) -->
+          <circle cx="80" cy="102" r="3" fill="#8b5cf6" opacity="0.8"/>
+          <circle cx="80" cy="118" r="2.5" fill="#8b5cf6" opacity="0.5"/>
+          <circle cx="80" cy="142" r="3.5" fill="#22c55e" opacity="1" filter="url(#gg)"/>
+          <circle cx="80" cy="158" r="2.5" fill="#8b5cf6" opacity="0.5"/>
+          <circle cx="180" cy="102" r="3" fill="#8b5cf6" opacity="0.8"/>
+          <circle cx="180" cy="118" r="3.5" fill="#22c55e" opacity="1" filter="url(#gg)"/>
+          <circle cx="180" cy="142" r="2.5" fill="#8b5cf6" opacity="0.5"/>
+          <circle cx="180" cy="158" r="3" fill="#8b5cf6" opacity="0.8"/>
+          <circle cx="102" cy="80" r="3" fill="#8b5cf6" opacity="0.8"/>
+          <circle cx="118" cy="80" r="2.5" fill="#8b5cf6" opacity="0.5"/>
+          <circle cx="142" cy="80" r="3.5" fill="#22c55e" opacity="1" filter="url(#gg)"/>
+          <circle cx="158" cy="80" r="2.5" fill="#8b5cf6" opacity="0.5"/>
+          <circle cx="102" cy="180" r="2.5" fill="#8b5cf6" opacity="0.5"/>
+          <circle cx="118" cy="180" r="3.5" fill="#22c55e" opacity="1" filter="url(#gg)"/>
+          <circle cx="142" cy="180" r="3" fill="#8b5cf6" opacity="0.8"/>
+          <circle cx="158" cy="180" r="2.5" fill="#8b5cf6" opacity="0.5"/>
+
+          <!-- ── LIGHTNING BOLT (electrical) — top right ── -->
+          <g filter="url(#gg)" opacity="0.9">
+            <polygon points="207,22 198,46 205,46 196,70 215,42 208,42 218,22" fill="#22c55e"/>
+          </g>
+          <!-- Glow circle behind bolt -->
+          <circle cx="207" cy="46" r="18" fill="rgba(34,197,94,0.07)"/>
+
+          <!-- ── CODE BRACKETS — bottom left ── -->
+          <g filter="url(#gp)">
+            <text x="34" y="210" font-family="'Space Grotesk', monospace" font-size="26" fill="#8b5cf6" opacity="0.85" font-weight="700">&lt;/&gt;</text>
+          </g>
+          <!-- Glow behind code -->
+          <circle cx="52" cy="198" r="22" fill="rgba(139,92,246,0.07)"/>
+
+          <!-- ── RESISTOR — top left ── -->
+          <g opacity="0.7">
+            <line x1="22" y1="44" x2="36" y2="44" stroke="#8b5cf6" stroke-width="1.5"/>
+            <rect x="36" y="39" width="28" height="10" rx="3" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
+            <line x1="64" y1="44" x2="78" y2="44" stroke="#8b5cf6" stroke-width="1.5"/>
+            <text x="50" y="62" font-family="monospace" font-size="7.5" fill="rgba(139,92,246,0.55)" text-anchor="middle">470&#x3a9;</text>
+          </g>
+
+          <!-- ── BINARY — bottom right ── -->
+          <g font-family="monospace" font-size="7.5" text-anchor="start">
+            <text x="184" y="208" fill="rgba(34,197,94,0.55)">01001101</text>
+            <text x="184" y="219" fill="rgba(34,197,94,0.38)">10110010</text>
+            <text x="184" y="230" fill="rgba(34,197,94,0.22)">01110011</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- ── STATS BAR ── -->
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value">40<span class="accent">+</span></span>
+          <span class="stat-label">Anos de experiência</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">SAP <span class="accent">/</span> CRM</span>
+          <span class="stat-label">Sistemas empresariais</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">Full<span class="accent">-</span>Stack</span>
+          <span class="stat-label">Desenvolvimento web</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ── SOBRE ── -->
+      <section class="section" id="sobre">
+        <div class="section-label">Sobre</div>
+        <div class="about-grid">
+          <p class="about-text">
+            <strong>Ricardo Levi Menezes Campos</strong> é Engenheiro Eletricista e Analista de Sistemas na <strong>Dedaline</strong>, com especialização em <strong>Inteligência de Perdas</strong>. Ao longo de décadas, construiu uma trajetória que une engenharia elétrica clássica com as exigências das novas tecnologias digitais — da automação industrial ao desenvolvimento web.
+          </p>
+          <div class="about-callout">
+            <span class="about-callout-tag">
+              <i class="ti ti-sparkles" aria-hidden="true"></i> Missão
+            </span>
+            <p class="about-callout-quote">
+              Unir décadas de engenharia com o poder do software moderno.
+            </p>
+            <p class="about-callout-sub">
+              Da eletrotécnica ao código — uma visão sistêmica que transforma complexidade em soluções claras.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── TRAJETÓRIA ── -->
+      <section class="section" id="trajetoria">
+        <div class="section-label">Trajetória</div>
+        <div class="timeline">
+          <div class="tl-line" aria-hidden="true"></div>
+          <div class="tl-list">
+            <div class="tl-item">
+              <span class="tl-date">1976–1979</span>
+              <div class="tl-body">
+                <div class="tl-role">Técnico em Eletrotécnica</div>
+                <span class="tl-tag"><i class="ti ti-bolt" aria-hidden="true"></i> Elétrica</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <span class="tl-date">1980–1986</span>
+              <div class="tl-body">
+                <div class="tl-role">Graduação em Engenharia Elétrica</div>
+                <span class="tl-tag"><i class="ti ti-school" aria-hidden="true"></i> Graduação</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <span class="tl-date">1987</span>
+              <div class="tl-body">
+                <div class="tl-role">Pós-Graduação em Análise de Sistemas</div>
+                <span class="tl-tag"><i class="ti ti-cpu" aria-hidden="true"></i> TI</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <span class="tl-date">2005–2018</span>
+              <div class="tl-body">
+                <div class="tl-role">Implantação de Sistemas SAP — CSS/CRM</div>
+                <span class="tl-tag"><i class="ti ti-database" aria-hidden="true"></i> ERP</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <span class="tl-date">2020</span>
+              <div class="tl-body">
+                <div class="tl-role">Gestão das Tecnologias Digitais</div>
+                <span class="tl-tag"><i class="ti ti-rocket" aria-hidden="true"></i> Digital</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── HABILIDADES ── -->
+      <section class="section">
+        <div class="section-label">Habilidades técnicas</div>
+        <div class="skills-bento">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="ti ti-brand-html5" aria-hidden="true"></i></div>
+            <div class="skill-top">
+              <span class="skill-name">HTML &amp; CSS</span>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+            <div class="skill-level">Intermediário-avançado</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon"><i class="ti ti-brand-javascript" aria-hidden="true"></i></div>
+            <div class="skill-top">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-pct">72%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:72%"></div></div>
+            <div class="skill-level">Intermediário-avançado</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon"><i class="ti ti-brand-python" aria-hidden="true"></i></div>
+            <div class="skill-top">
+              <span class="skill-name">Python</span>
+              <span class="skill-pct">72%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:72%"></div></div>
+            <div class="skill-level">Intermediário-avançado</div>
+          </div>
+          <div class="skill-card wide">
+            <div class="skill-icon"><i class="ti ti-brand-react" aria-hidden="true"></i></div>
+            <div class="skill-top">
+              <span class="skill-name">React</span>
+              <span class="skill-pct">48%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:48%"></div></div>
+            <div class="skill-level">Em desenvolvimento</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon"><i class="ti ti-palette" aria-hidden="true"></i></div>
+            <div class="skill-top">
+              <span class="skill-name">Design</span>
+              <span class="skill-pct">48%</span>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:48%"></div></div>
+            <div class="skill-level">Em desenvolvimento</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── PROJETOS ── -->
+      <section class="section" id="projetos">
+        <div class="section-label">Projetos</div>
+        <div class="projects-list">
+          <div class="project-card">
+            <div class="project-icon">
+              <i class="ti ti-scale" aria-hidden="true"></i>
+            </div>
+            <div class="project-meta">
+              <div class="project-title">Sites para Escritórios de Advocacia</div>
+              <div class="project-desc">Desenvolvimento de presença digital profissional e funcional para o setor jurídico.</div>
+              <div class="project-tags">
+                <span class="project-tag">HTML/CSS</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Web Design</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">
+              <i class="ti ti-chart-line" aria-hidden="true"></i>
+            </div>
+            <div class="project-meta">
+              <div class="project-title">Data Science na Área de Energia</div>
+              <div class="project-desc">Estudos e análises aplicadas ao setor elétrico usando Python e visualização de dados.</div>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Data Science</span>
+                <span class="project-tag">Energia</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-icon">
+              <i class="ti ti-cpu" aria-hidden="true"></i>
+            </div>
+            <div class="project-meta">
+              <div class="project-title">Implantação de Tecnologias Digitais</div>
+              <div class="project-desc">Projetos de transformação digital com foco em processos industriais e corporativos.</div>
+              <div class="project-tags">
+                <span class="project-tag">SAP</span>
+                <span class="project-tag">CRM</span>
+                <span class="project-tag">Transformação Digital</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── INTERESSES ── -->
+      <section class="section">
+        <div class="section-label">Interesses</div>
+        <div class="interests-chips">
+          <span class="interest-chip"><i class="ti ti-music" aria-hidden="true"></i> Música variada</span>
+          <span class="interest-chip"><i class="ti ti-confetti" aria-hidden="true"></i> Roda de Samba</span>
+          <span class="interest-chip"><i class="ti ti-map-pin" aria-hidden="true"></i> Viagens pelo Brasil</span>
+          <span class="interest-chip"><i class="ti ti-device-tv" aria-hidden="true"></i> Séries &amp; TV</span>
+        </div>
+      </section>
+
+      <!-- ── CONTATO ── -->
+      <div class="contact-wrap" id="contato">
+        <div class="contact-inner">
+          <h2 class="contact-heading">Vamos conversar?</h2>
+          <p class="contact-desc">Estou disponível para projetos de tecnologia digital, desenvolvimento web e consultoria em sistemas elétricos. Envie uma mensagem e retorno em breve.</p>
+          <div class="social-links">
+            <a href="mailto:ricardolevi@dedaline.dev" class="social-link">
+              <i class="ti ti-mail" aria-hidden="true"></i> E-mail
+            </a>
+            <a href="https://www.youtube.com/channel/UCnoYMC8SIPAhyyWazu9SMFg" target="_blank" rel="noopener" class="social-link">
+              <i class="ti ti-brand-youtube" aria-hidden="true"></i> YouTube
+            </a>
+            <a href="https://github.com/ricardolevi2005" target="_blank" rel="noopener" class="social-link">
+              <i class="ti ti-brand-github" aria-hidden="true"></i> GitHub
+            </a>
+            <a href="https://www.instagram.com/dedaline_dev/" target="_blank" rel="noopener" class="social-link">
+              <i class="ti ti-brand-instagram" aria-hidden="true"></i> Instagram
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <div class="footer-left">
+        <div class="footer-dot" aria-hidden="true"></div>
+        <span class="footer-name">Ricardo Levi · <span>Dedaline</span></span>
+      </div>
+      <span class="footer-copy">© 2025</span>
+    </footer>
+
+  </div>
 
 </body>
 </html>
