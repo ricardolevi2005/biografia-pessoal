@@ -1,1 +1,26 @@
+# Variáveis de ambiente
+.env
 .env.local
+.env.*.local
+
+# Tooling local (Claude Code, editores)
+.claude/
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python (scripts de desenvolvimento)
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Node (caso venha a usar npm/tooling)
+node_modules/
+npm-debug.log*
+
+# Vercel
+.vercel
