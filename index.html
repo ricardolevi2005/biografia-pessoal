@@ -96,14 +96,15 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
-    .nav-brand::before {
-      content: '';
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 10px var(--green);
+    .nav-logo {
+      flex-shrink: 0;
+      overflow: visible;
+      transition: filter 0.2s;
+    }
+    .nav-brand:hover .nav-logo {
+      filter: drop-shadow(0 0 7px var(--purple-glow));
     }
     .nav-links {
       display: flex;
@@ -737,7 +738,37 @@
   <div class="blob-2" aria-hidden="true"></div>
 
   <nav>
-    <a href="#" class="nav-brand">Ricardo Levi</a>
+    <a href="#" class="nav-brand">
+      <svg class="nav-logo" width="30" height="30" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="logo-border" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8b5cf6"/>
+            <stop offset="100%" stop-color="#22c55e"/>
+          </linearGradient>
+        </defs>
+        <!-- Chip body -->
+        <rect x="4" y="4" width="28" height="28" rx="6" fill="#111120" stroke="url(#logo-border)" stroke-width="1.5"/>
+        <!-- Internal cross lines (circuit detail) -->
+        <line x1="4" y1="18" x2="32" y2="18" stroke="rgba(139,92,246,0.18)" stroke-width="0.75"/>
+        <line x1="18" y1="4" x2="18" y2="32" stroke="rgba(139,92,246,0.18)" stroke-width="0.75"/>
+        <!-- Pins — top -->
+        <line x1="12" y1="4"  x2="12" y2="0"  stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="24" y1="4"  x2="24" y2="0"  stroke="#22c55e" stroke-width="2"   stroke-linecap="round"/>
+        <!-- Pins — bottom -->
+        <line x1="12" y1="32" x2="12" y2="36" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="24" y1="32" x2="24" y2="36" stroke="#22c55e" stroke-width="2"   stroke-linecap="round"/>
+        <!-- Pins — left -->
+        <line x1="4"  y1="12" x2="0"  y2="12" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="4"  y1="24" x2="0"  y2="24" stroke="#22c55e" stroke-width="2"   stroke-linecap="round"/>
+        <!-- Pins — right -->
+        <line x1="32" y1="12" x2="36" y2="12" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="32" y1="24" x2="36" y2="24" stroke="#22c55e" stroke-width="2"   stroke-linecap="round"/>
+        <!-- Monogram RL -->
+        <text x="18" y="22" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700"
+              fill="#a78bfa" text-anchor="middle" letter-spacing="-0.5">RL</text>
+      </svg>
+      Ricardo Levi
+    </a>
     <ul class="nav-links">
       <li><a href="#trajetoria">Trajetória</a></li>
       <li><a href="#projetos">Projetos</a></li>
